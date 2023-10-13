@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>match-maker-for-web</title>
+    <link rel="stylesheet" href="match-maker.css">
+</head>
+<body>
+    <h1>Check To See If We Are Compatable!</h1>
+    <div>
+    <label for="q1" class="main">Country Music Is Great:</label>
+
+<select name="question one" id="q1" class="label">
+  <option value="5">Strongly Agree</option>
+  <option value="4">Agree</option>
+  <option value="3">Meh</option>
+  <option value="2">Disagree</option>
+  <option value="1">Strongly Disagree</option>
+  
+</select>
+    <br><br><br>
+<label for="q2" class="main">Cats Are Better Than Dogs:</label>
+
+<select name="question two" id="q2" class="label">
+  <option value="5">Strongly Agree</option>
+  <option value="4">Agree</option>
+  <option value="3">Meh</option>
+  <option value="2">Disagree</option>
+  <option value="1">Strongly Disagree</option>
+  
+</select>
+<br><br><br>
+<label for="q3" class="main">Porche Makes The Best Cars:</label>
+
+<select name="question three" id="q3" class="label">
+  <option value="5">Strongly Agree</option>
+  <option value="4">Agree</option>
+  <option value="3">Meh</option>
+  <option value="2">Disagree</option>
+  <option value="1">Strongly Disagree</option>
+  
+  <br><br><br>
+
+</select>
+<br><br><br>
+<label for="q4" class="main">Windows Is Better Than Mac OS:</label>
+
+<select name="question four" id="q4" class="label">
+  <option value="5">Strongly Agree</option>
+  <option value="4">Agree</option>
+  <option value="3">Meh</option>
+  <option value="2">Disagree</option>
+  <option value="1">Strongly Disagree</option>
+
+</select>
+
+<br><br><br>
+<label for="q5" class="main">Baseball Is the Best Sport:</label>
+
+<select name="question five" id="q5" class="label">
+  <option value="5">Strongly Agree</option>
+  <option value="4">Agree</option>
+  <option value="3">Meh</option>
+  <option value="2">Disagree</option>
+  <option value="1">Strongly Disagree</option>
+
+</select>
+</div>
+<br><br><br>
+<button onclick="calculatebutton()" class="button">Check Your Compatability!</button>
+<p id="printscorehere"></p>
+
+<script>
+
+
+//values indicate which respose is correct (5 being an exact match, 1 being worst answer)
+const  correctanswer = [4,1,5,4,1]
+const maxscore = 25
+
+
+
+function calculatebutton(){
+let question1answer = document.getElementById("q1").selectedOptions[0].value;
+let question2answer = document.getElementById("q2").selectedOptions[0].value;
+let question3answer = document.getElementById("q3").selectedOptions[0].value;
+let question4answer= document.getElementById("q4").selectedOptions[0].value;
+let question5answer = document.getElementById("q5").selectedOptions[0].value;
+
+let question1score = 5 - Math.abs(question1answer - correctanswer[0]);
+let question2score = 5 - Math.abs(question2answer - correctanswer[1]);
+let question3score = 5 - Math.abs(question3answer - correctanswer[2]);
+let question4score = 5 - Math.abs(question4answer - correctanswer[3]);
+let question5score = 5 - Math.abs(question5answer - correctanswer[4]);
+
+let totalscore = question1score + question2score + question3score + question4score + question5score
+  totalscore *= 100 /maxscore;
+  totalscore = Math.round(totalscore);
+
+
+document.getElementById("printscorehere").innerHTML = "You are " + totalscore + "% Compatable!!!";
+
+}
+</script>
+</body>
+</html>
