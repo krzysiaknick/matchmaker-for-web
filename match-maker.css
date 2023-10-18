@@ -59,3 +59,14 @@ border-color: white;
     border-width: 5px;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
+
+.results{
+    background-color: pink;
+    border-radius: 30px;
+    padding: 20px;
+    border-style: double;
+    border-color: white;
+    font-size: 20px;
+    border-width: 5px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; 
+}

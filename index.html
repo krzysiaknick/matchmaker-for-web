@@ -69,7 +69,8 @@
 </div>
 <br><br><br>
 <button onclick="calculatebutton()" class="button">Check Your Compatability!</button>
-<p id="printscorehere"></p>
+<p id="printscorehere" class="results"></p>
+<p id ="remarkhere" class="results"> </p>
 
 <script>
 
@@ -84,7 +85,7 @@ function calculatebutton(){
 let question1answer = document.getElementById("q1").selectedOptions[0].value;
 let question2answer = document.getElementById("q2").selectedOptions[0].value;
 let question3answer = document.getElementById("q3").selectedOptions[0].value;
-let question4answer= document.getElementById("q4").selectedOptions[0].value;
+let question4answer = document.getElementById("q4").selectedOptions[0].value;
 let question5answer = document.getElementById("q5").selectedOptions[0].value;
 
 let question1score = 5 - Math.abs(question1answer - correctanswer[0]);
@@ -93,12 +94,22 @@ let question3score = 5 - Math.abs(question3answer - correctanswer[2]);
 let question4score = 5 - Math.abs(question4answer - correctanswer[3]);
 let question5score = 5 - Math.abs(question5answer - correctanswer[4]);
 
+
 let totalscore = question1score + question2score + question3score + question4score + question5score
   totalscore *= 100 /maxscore;
   totalscore = Math.round(totalscore);
 
+  if (totalscore > 75){
+  remark = "Good"
+} else if (50 >totalscore >75){
+  remark = "meh"
+}else {
+  remark = "bad"
+}
 
-document.getElementById("printscorehere").innerHTML = "You are " + totalscore + "% Compatable!!!";
+
+document.getElementById("printscorehere").innerHTML = "You are " + totalscore + "% Compatable!";
+document.getElementById("remarkhere").innerHTML = remark;
 
 }
 </script>
