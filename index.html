@@ -5,9 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>match-maker-for-web</title>
     <link rel="stylesheet" href="match-maker.css">
+
+    <style>
+      .button:hover {color:white;
+      background-color: rgb(240, 166, 179);}
+    
+    </style>
 </head>
+
 <body>
     <h1>Check To See If We Are Compatable!</h1>
+    <p class = "description">Answer the questions below by using the drop down options. Once complete, click "Check Your Compatability" to see how you did. </p>
     <div>
     <label for="q1" class="main">Country Music Is Great:</label>
 
@@ -40,7 +48,7 @@
   <option value="2">Disagree</option>
   <option value="1">Strongly Disagree</option>
   
-  <br><br><br>
+  
 
 </select>
 <br><br><br>
@@ -70,10 +78,9 @@
 <br><br><br>
 <button onclick="calculatebutton()" class="button">Check Your Compatability!</button>
 <p id="printscorehere" class="results"></p>
-<p id ="remarkhere" class="results"> </p>
 
 <script>
-
+console.log("starting")
 
 //values indicate which respose is correct (5 being an exact match, 1 being worst answer)
 const  correctanswer = [4,1,5,4,1]
@@ -99,17 +106,188 @@ let totalscore = question1score + question2score + question3score + question4sco
   totalscore *= 100 /maxscore;
   totalscore = Math.round(totalscore);
 
-  if (totalscore > 75){
-  remark = "Good"
-} else if (50 >totalscore >75){
-  remark = "meh"
+  if (totalscore > 80){
+  remark = "lets go out!"
+} else if (totalscore > 50 && totalscore <= 80){
+  remark = "We can be friends I guess"
 }else {
-  remark = "bad"
+  remark = "Kick rocks buddy!"
+}
+
+//Below defines what the user input was and converts it to the appropirate response
+
+let useranswer1 = question1answer
+if (question1answer == 5) {
+  useranswer1 = "Strongly Agree";
+} else if (question1answer == 4) {
+  useranswer1 = "Agree";
+} else if (question1answer == 3){
+  useranswer1 = "Meh";
+} else if (question1answer == 2){
+  useranswer1 = "disagree"
+} else if (question1answer == 1){
+  useranswer1 = "Strongly Disagree"
+} else{
+  useranswer1 = "Error"
+}
+
+let useranswer2 = question2answer
+if (question2answer == 5) {
+  useranswer2 = "Strongly Agree";
+} else if (question2answer == 4) {
+  useranswer2 = "Agree";
+} else if (question2answer == 3){
+  useranswer2 = "Meh";
+} else if (question2answer == 2){
+  useranswer2 = "disagree"
+} else if (question2answer == 1){
+  useranswer2 = "Strongly Disagree"
+} else{
+  useranswer2 = "Error"
+}
+
+let useranswer3 = question3answer
+if (question3answer == 5) {
+  useranswer3 = "Strongly Agree";
+} else if (question3answer == 4) {
+  useranswer3 = "Agree";
+} else if (question3answer == 3){
+  useranswer3 = "Meh";
+} else if (question3answer == 2){
+  useranswer3 = "disagree"
+} else if (question3answer == 1){
+  useranswer3 = "Strongly Disagree"
+} else{
+  useranswer3 = "Error"
+}
+
+let useranswer4 = question4answer
+if (question4answer == 5) {
+  useranswer4 = "Strongly Agree";
+} else if (question4answer == 4) {
+  useranswer4 = "Agree";
+} else if (question4answer == 3){
+  useranswer4 = "Meh";
+} else if (question4answer == 2){
+  useranswer4 = "disagree"
+} else if (question4answer == 1){
+  useranswer4 = "Strongly Disagree"
+} else{
+  useranswer4 = "Error"
 }
 
 
-document.getElementById("printscorehere").innerHTML = "You are " + totalscore + "% Compatable!";
-document.getElementById("remarkhere").innerHTML = remark;
+let useranswer5 = question5answer
+if (question5answer == 5) {
+  useranswer5 = "Strongly Agree";
+} else if (question5answer == 4) {
+  useranswer5 = "Agree";
+} else if (question5answer == 3){
+  useranswer5 = "Meh";
+} else if (question5answer == 2){
+  useranswer5 = "disagree"
+} else if (question5answer == 1){
+  useranswer5 = "Strongly Disagree"
+} else{
+  useranswer5 = "Error"
+}
+
+//End input conversion
+
+// Now we do the same for the correct answer
+let correctbreakdown1 = correctanswer[0]
+if (correctanswer[0] == 5) {
+  correctbreakdown1 = "Strongly Agree";
+} else if (correctanswer[0] == 4) {
+  correctbreakdown1 = "Agree";
+} else if (correctanswer[0] == 3){
+  useranswer5 = "Meh";
+} else if (question5answer == 2){
+  correctbreakdown1 = "disagree"
+} else if (correctanswer[0] == 1){
+  correctbreakdown1 = "Strongly Disagree"
+} else{
+  correctbreakdown1 = "Error"
+}
+
+
+let correctbreakdown2 = correctanswer[1]
+if (correctanswer[1] == 5) {
+  correctbreakdown2 = "Strongly Agree";
+} else if (correctanswer[1] == 4) {
+  correctbreakdown2 = "Agree";
+} else if (correctanswer[1] == 3){
+  useranswer5 = "Meh";
+} else if (question5answer == 2){
+  correctbreakdown2 = "disagree"
+} else if (correctanswer[1] == 1){
+  correctbreakdown2 = "Strongly Disagree"
+} else{
+  correctbreakdown2 = "Error"
+}
+
+
+let correctbreakdown3 = correctanswer[2]
+if (correctanswer[2] == 5) {
+  correctbreakdown3 = "Strongly Agree";
+} else if (correctanswer[2] == 4) {
+  correctbreakdown3 = "Agree";
+} else if (correctanswer[2] == 3){
+  useranswer5 = "Meh";
+} else if (question5answer == 2){
+  correctbreakdown3 = "disagree"
+} else if (correctanswer[2] == 1){
+  correctbreakdown3 = "Strongly Disagree"
+} else{
+  correctbreakdown3 = "Error"
+}
+
+
+let correctbreakdown4 = correctanswer[3]
+if (correctanswer[3] == 5) {
+  correctbreakdown4 = "Strongly Agree";
+} else if (correctanswer[3] == 4) {
+  correctbreakdown4 = "Agree";
+} else if (correctanswer[3] == 3){
+  useranswer5 = "Meh";
+} else if (question5answer == 2){
+  correctbreakdown4 = "disagree"
+} else if (correctanswer[3] == 1){
+  correctbreakdown4 = "Strongly Disagree"
+} else{
+  correctbreakdown4 = "Error"
+}
+
+
+let correctbreakdown5 = correctanswer[4]
+if (correctanswer[4] == 5) {
+  correctbreakdown5 = "Strongly Agree";
+} else if (correctanswer[4] == 4) {
+  correctbreakdown5 = "Agree";
+} else if (correctanswer[4] == 3){
+  useranswer5 = "Meh";
+} else if (question5answer == 2){
+  correctbreakdown5 = "disagree"
+} else if (correctanswer[4] == 1){
+  correctbreakdown5 = "Strongly Disagree"
+} else{
+  correctbreakdown5 = "Error"
+}
+
+
+let score = "We are " + totalscore + "% Compatable!"
+
+let breakdown1 = "1) You answered "+"<strong>"+ useranswer1 +"</strong>"+ ", the correct answer is "+"<strong>"+ correctbreakdown1+"</strong>";
+let breakdown2 = "2) You answered "+"<strong>"+ useranswer2 +"</strong>"+ ", the correct answer is "+"<strong>"+ correctbreakdown2+"</strong>";
+let breakdown3 = "3) You answered "+"<strong>"+ useranswer3 +"</strong>"+ ", the correct answer is "+"<strong>"+ correctbreakdown3+"</strong>";
+let breakdown4 = "4) You answered "+"<strong>"+ useranswer4 +"</strong>"+ ", the correct answer is "+"<strong>"+ correctbreakdown4+"</strong>";
+let breakdown5 = "5) You answered "+"<strong>"+ useranswer5 +"</strong>"+ ", the correct answer is "+"<strong>"+ correctbreakdown5+"</strong>";
+
+
+document.getElementById("printscorehere").innerHTML = score + "<br>"+"<br>"+ remark + "<br>"+"<br>"+breakdown1
++ "<br>"+"<br>"+breakdown2+ "<br>"+"<br>"+breakdown3+ "<br>"+"<br>"+breakdown4+ "<br>"+"<br>"+breakdown5;
+
+
 
 }
 </script>
